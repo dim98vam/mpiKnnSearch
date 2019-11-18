@@ -173,7 +173,7 @@ void calculateDistances(double* X,double* Y,int n,int m,int d,double** pointer){
 
 }
 
-knnresult* kNN(double* X,double* Y,int n,int m,int d,int k){
+knnresult kNN(double* X,double* Y,int n,int m,int d,int k){
 
         //calculate distanceMatrix
         double* distanceMatrix;
@@ -210,7 +210,7 @@ knnresult* kNN(double* X,double* Y,int n,int m,int d,int k){
         result->k=k;
         result->m=m;
 
-        return result;
+        return *result;
 }
 
 
@@ -226,13 +226,13 @@ int main(void){
     //double b[4][3] = {{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
     double y[2][3]={{13,14,15},{16,17,18}};
 
-    knnresult* result=kNN((double*)holder,(double*)y,4,2,3,3);
+    knnresult result=kNN((double*)holder,(double*)y,4,2,3,3);
 
     int i;
     int j;
     for(i=0;i<2;++i){
        for(j=0;j<3;++j)
-         printf("%lf ",(result->ndist)[i*3+j]);
+         printf("%lf ",(result.ndist)[i*3+j]);
 
         printf("\n");
     }
@@ -241,7 +241,7 @@ int main(void){
 
     for(i=0;i<2;++i){
        for(j=0;j<3;++j)
-         printf("%d ",(result->nidx)[i*3+j]);
+         printf("%d ",(result.nidx)[i*3+j]);
 
         printf("\n");
     }
