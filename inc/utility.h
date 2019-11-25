@@ -17,12 +17,6 @@ double* partition(int size,int* a,double* left, double* right, double* pivotInde
 //validated
 double* quickselect(int size,int* a,double* left, double* right, int k);
 
-
-// Returns the k-th smallest element of list within left..right
-// (i.e. left <= k <= right) while updating initial index table using lomuto partition
-//validated
-double* quickselect(int size,int* a,double* left, double* right, int k);
-
 //quicksort used to reorder k smallest distances in ascending order while updating the index table
 void quickSort(int* a, double* low, double* high);
 
